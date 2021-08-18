@@ -1,0 +1,85 @@
+body{
+    display: flex;
+    min-width: 100vh;
+    margin:0 auto;
+    background-color:rgba(0,255,2,0.1);
+    
+
+}
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-top: 5px;
+    opacity: 0;
+}
+input[type="checkbox"]:checked ~ h2{    /*延迟1.2s,用0.6s播放名为title的动画，并且在动画播放完周停留在最后一格*/
+    animation: .6s title ease-in-out;
+    animation-delay: 1.2s;
+    animation-fill-mode: forwards;
+}
+.circle{
+    stroke-dasharray: 1194; /*圆的周长： 2*190*3.14*/
+    stroke-dashoffset: 1194; 
+ 
+}
+input[type="checkbox"]:checked + svg .circle{
+    animation: circle 1s ease-in-out;   /*当勾选checkbox时，用1s的时间播放名为circle的动画*/
+    animation-fill-mode:forwards;
+}
+.tick{
+    stroke-dasharray:350 ;
+    stroke-dashoffset: 350;
+}
+input[type="checkbox"]:checked + svg .tick{
+    animation: tick .8s ease-in-out;
+    animation-fill-mode:forwards;
+    animation-delay: .95s;
+}
+.text{
+    display: flex;
+    /*实现垂直居中*/
+    align-items: center;
+    /*实现水平居中*/
+    justify-content: center;
+}
+#a1{
+    background-color:#666FFF;
+    border: black 2px solid ;
+    border-radius: 5px;
+    
+}
+
+#b1{
+    height:200px;
+    border: rgb(148, 15, 15) 2px solid ;
+    border-radius: 5px;
+    
+}
+
+
+
+@keyframes circle{  /*逆时针显示*/
+    from{
+        stroke-dashoffset: 1194;
+    }
+    to{
+        stroke-dashoffset:2388 ;    /*若为0，则顺时针*/
+    }
+}
+@keyframes tick{
+    from{
+        stroke-dashoffset: 350;
+    }
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes title{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
