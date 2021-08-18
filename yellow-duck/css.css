@@ -51,6 +51,7 @@ input[type="checkbox"]:checked + svg .tick{
 
 #b1{
     height:200px;
+    margin-top: 10px;
     border: rgb(148, 15, 15) 2px solid ;
     border-radius: 5px;
     
